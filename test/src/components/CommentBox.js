@@ -4,15 +4,12 @@ class CommentBox extends Component {
  
     state={ comment: ''}
 
-    onInputChange = (e) => {
-        e.preventDefault();
-        const target = e.target;
-        const Input = target.input;
-        this.setState({comment: Input})
+    onInputChange = (event) => {
+        this.setState({comment: event.target.value})
     }
 
     handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault();  
         this.setState({comment: ''})
     }
      
