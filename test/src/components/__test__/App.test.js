@@ -3,6 +3,7 @@ import App from "components/App";
 import CommentBox from "components/CommentBox";
 import { shallow } from "enzyme";
 import  CommentList  from "components/CommentList";
+import Root from 'Root';
 
 let wrapped;
 beforeEach(() => {

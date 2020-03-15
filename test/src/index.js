@@ -1,15 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from 'components/App';
-import reducer from './Reducers';
-import { Provider} from 'react-redux'
-import { compose, createStore} from 'redux';
-
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "components/App";
+import Root from 'Root';
 
 // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-// const store = createStore(reducer, composeEnhancers)
+// const store = createStore(reducers, {});
+
 ReactDOM.render(
-// {/* <Provider> */}
-<App/>
-// </Provider> 
-,document.querySelector('#root'));
+  <Root>
+    <App />
+  </Root>,
+  document.querySelector("#root")
+);
