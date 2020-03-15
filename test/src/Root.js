@@ -5,12 +5,12 @@ import reducers from "./Reducers";
 import reduxPromise from "redux-promise";
 
 export default ({ children, initialState = {} }) => {
-  // const composeEnhancers =
-  //   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  const composeEnhancers =
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   const store = createStore(
     reducers,
     initialState,
-    applyMiddleware(reduxPromise)
+    composeEnhancers(applyMiddleware(reduxPromise))
   );
   return <Provider store={store}>{children}</Provider>;
 };

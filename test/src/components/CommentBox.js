@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import * as actions from "./../actions";
 import { connect } from "react-redux";
-import { saveComment, fetchComments } from 'actions/index'
+import { saveComment, fetchComments } from "actions/index";
 
 class CommentBox extends Component {
   state = { comment: "" };
@@ -26,7 +26,9 @@ class CommentBox extends Component {
             <button>Submit Commit</button>
           </div>
         </form>
-        <button onClick={this.props.fetchComments}>Fetch Comments</button>
+        <button className='fetch-comments' onClick={this.props.fetchComments}>
+          Fetch Comments
+        </button>
       </div>
     );
   }
