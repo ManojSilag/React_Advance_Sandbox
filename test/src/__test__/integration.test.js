@@ -33,11 +33,11 @@ it("can fetch a list of comments and display them", (done) => {
 //     wrapper.unmount();
 //    },100)
 
-        moxios.wait(()=>{
-        wrapper.update() 
-        expect(wrapper.find('li').length).toEqual(2);
-        done();
-        wrapper.unmount();
-       })
+    moxios.wait(()=>{
+    wrapper.update() 
+    expect(wrapper.find('li').length).toEqual(2);
+    done();
+    wrapper.unmount();
+    })
 
 });
