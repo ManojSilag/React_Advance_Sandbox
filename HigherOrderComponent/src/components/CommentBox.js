@@ -2,25 +2,11 @@ import React, { Component } from "react";
 import * as actions from "./../actions";
 import { connect } from "react-redux";
 import { saveComment, fetchComments } from "actions/index";
+import requireAuth from 'components/requireAuth';
 
 class CommentBox extends Component {
+
   state = { comment: "" };
-
-  componentDidMount(){
-  //  this.props.auth
-  this.shouldNavigateAway()
-  }
-
-  componentDidUpdate(){
-this.shouldNavigateAway()
-  }
-
-  shouldNavigateAway(){
-    if(!this.props.auth){
-      this.props.history.push('/')
-      
-    }
-  }
 
   onInputChange = (event) => {
     this.setState({ comment: event.target.value });
@@ -50,8 +36,5 @@ this.shouldNavigateAway()
   }
 }
 
-const mapStateTOProps = (state) => {
-  return { auth : state.auth }
-}
 
-export default connect(mapStateTOProps, { saveComment, fetchComments })(CommentBox);
+export default connect(null, { saveComment, fetchComments })(requireAuth(CommentBox));
