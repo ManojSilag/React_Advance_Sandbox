@@ -6,6 +6,22 @@ import { saveComment, fetchComments } from "actions/index";
 class CommentBox extends Component {
   state = { comment: "" };
 
+  componentDidMount(){
+  //  this.props.auth
+  this.shouldNavigateAway()
+  }
+
+  componentDidUpdate(){
+this.shouldNavigateAway()
+  }
+
+  shouldNavigateAway(){
+    if(!this.props.auth){
+      this.props.history.push('/')
+      
+    }
+  }
+
   onInputChange = (event) => {
     this.setState({ comment: event.target.value });
   };
@@ -34,4 +50,8 @@ class CommentBox extends Component {
   }
 }
 
-export default connect(null, { saveComment, fetchComments })(CommentBox);
+const mapStateTOProps = (state) => {
+  return { auth : state.auth }
+}
+
+export default connect(mapStateTOProps, { saveComment, fetchComments })(CommentBox);
