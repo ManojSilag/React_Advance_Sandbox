@@ -10,7 +10,7 @@ export default ({ children, initialState = {} }) => {
   const store = createStore(
     reducers,
     initialState,
-    composeEnhancers(applyMiddleware())
+    composeEnhancers(applyMiddleware(reduxPromise))
   );
   return <Provider store={store}>{children}</Provider>;
 };
