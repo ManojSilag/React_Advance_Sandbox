@@ -20,7 +20,6 @@ class CommentList extends Component {
 }
  
 const mapStateTOProps = (state) => {
-    console.log(state);
     return { comments : state.commentList}
     
 }
